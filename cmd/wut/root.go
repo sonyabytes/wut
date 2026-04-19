@@ -2,8 +2,10 @@ package main
 
 import "github.com/spf13/cobra"
 
-// Version is the compiled-in version string. Bumped by release tooling later.
-const Version = "0.0.1"
+// Version is the compiled-in version string. Release builds overwrite this via
+// `-ldflags -X main.Version=<tag>` (see .goreleaser.yaml); that stamp only
+// works on a var, not a const.
+var Version = "0.0.0-dev"
 
 func NewRootCmd() *cobra.Command {
 	cmd := &cobra.Command{
