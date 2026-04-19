@@ -10,7 +10,7 @@ import (
 	"github.com/BurntSushi/toml"
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/config"
 )
 
 func NewHarnessCmd() *cobra.Command {

@@ -7,8 +7,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/config"
-	"terminal-helper/internal/ui"
+	"github.com/sonyaihub/terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/ui"
 )
 
 func NewSetupCmd() *cobra.Command {

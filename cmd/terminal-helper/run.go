@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/config"
 )
 
 // NewRunCmd skips detection entirely and always launches the active harness

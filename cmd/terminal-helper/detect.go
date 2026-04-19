@@ -7,10 +7,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/config"
-	"terminal-helper/internal/detect"
-	"terminal-helper/internal/harness"
-	"terminal-helper/internal/ui"
+	"github.com/sonyaihub/terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/detect"
+	"github.com/sonyaihub/terminal-helper/internal/harness"
+	"github.com/sonyaihub/terminal-helper/internal/ui"
 )
 
 func NewDetectCmd() *cobra.Command {

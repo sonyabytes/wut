@@ -8,8 +8,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/shell"
-	"terminal-helper/internal/ui"
+	"github.com/sonyaihub/terminal-helper/internal/shell"
+	"github.com/sonyaihub/terminal-helper/internal/ui"
 )
 
 // marker that we grep for when deciding whether the rc file is already wired.

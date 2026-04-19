@@ -8,7 +8,7 @@ import (
 	"strings"
 	"syscall"
 
-	"terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/config"
 )
 
 // Runner executes a prompt against a harness.

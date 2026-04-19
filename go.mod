@@ -1,4 +1,4 @@
-module terminal-helper
+module github.com/sonyaihub/terminal-helper
 
 go 1.26
 

@@ -1,0 +1,78 @@
+# goreleaser v2 config.
+# Locally: `goreleaser release --snapshot --clean` to dry-run.
+# CI: .github/workflows/release.yml runs `goreleaser release --clean` on `v*` tags.
+version: 2
+
+project_name: terminal-helper
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: terminal-helper
+    main: ./cmd/terminal-helper
+    binary: terminal-helper
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      # Trims debug info; stamps main.Version so `terminal-helper version`
+      # returns the tag (e.g. "0.1.0") instead of "0.0.0-dev".
+      - -s -w -X main.Version={{ .Version }}
+
+archives:
+  - id: default
+    # uname-matching naming so scripts/install.sh can derive the URL from
+    # `uname -s` / `uname -m` without a mapping table.
+    name_template: >-
+      {{- .ProjectName }}_
+      {{- if eq .Os "darwin" }}Darwin
+      {{- else if eq .Os "linux" }}Linux
+      {{- else }}{{ title .Os }}{{ end }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "arm64" }}arm64
+      {{- else }}{{ .Arch }}{{ end }}
+    formats: [tar.gz]
+    files:
+      - README.md
+      - LICENSE*
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  use: github
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - Merge pull request
+      - Merge branch
+
+# Homebrew tap publishing — flip `skip_upload` to false and create the tap
+# repo at github.com/sonyaihub/homebrew-tap before the first real release.
+brews:
+  - name: terminal-helper
+    repository:
+      owner: sonyaihub
+      name: homebrew-tap
+    directory: Formula
+    homepage: https://github.com/sonyaihub/terminal-helper
+    description: Route accidental natural-language shell input to your AI harness
+    license: MIT
+    skip_upload: "true"
+    install: |
+      bin.install "terminal-helper"
+    test: |
+      system "#{bin}/terminal-helper", "version"

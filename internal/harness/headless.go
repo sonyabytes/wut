@@ -16,8 +16,8 @@ import (
 
 	"golang.org/x/term"
 
-	"terminal-helper/internal/config"
-	"terminal-helper/internal/render"
+	"github.com/sonyaihub/terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/render"
 )
 
 // HeadlessOptions tunes the non-invocation knobs that come from the top-level

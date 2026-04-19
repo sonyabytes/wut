@@ -32,7 +32,7 @@ deferred to the first user on fish. The snippet follows the documented
 `scripts/install.sh` — POSIX `sh -n` clean. Flow:
 
 1. Require Go on `$PATH`.
-2. `go install github.com/sonyatalona/terminal-helper/cmd/terminal-helper@latest`.
+2. `go install github.com/sonyaihub/terminal-helper/cmd/terminal-helper@latest`.
 3. Check that the resulting binary exists at `$(go env GOBIN)` or
    `$(go env GOPATH)/bin`.
 4. Warn loudly if that directory isn't on `$PATH` (would cause the hook to

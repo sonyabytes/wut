@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/config"
 )
 
 func TestSubstituteReplacesAllOccurrences(t *testing.T) {

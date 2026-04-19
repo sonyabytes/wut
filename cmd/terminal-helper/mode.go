@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"terminal-helper/internal/config"
+	"github.com/sonyaihub/terminal-helper/internal/config"
 )
 
 func NewModeCmd() *cobra.Command {

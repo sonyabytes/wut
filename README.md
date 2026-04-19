@@ -22,24 +22,24 @@ $ ls -la
 
 ## Install
 
-> Release artifacts aren't published yet. The URLs below are placeholders — links will be filled in once the homebrew tap and GitHub releases go live.
-
-**Homebrew** (once the tap is published):
+**curl | sh** — no Go required. Downloads the prebuilt binary from the latest GitHub release, verifies the sha256, and drops it in `/usr/local/bin` (or `~/.local/bin` if you can't sudo):
 
 ```sh
-brew install <owner>/tap/terminal-helper
+curl -fsSL https://raw.githubusercontent.com/sonyaihub/terminal-helper/main/scripts/install.sh | sh
 ```
 
-**curl | sh** (Go toolchain required for now):
+Pin a version with `TH_VERSION=v0.1.0`, or override the install dir with `TH_INSTALL_DIR=...`.
+
+**Homebrew**:
 
 ```sh
-curl -fsSL <install-script-url> | sh
+brew install sonyaihub/tap/terminal-helper
 ```
 
-**From source**:
+**From source** (needs Go 1.26+):
 
 ```sh
-go install <module-path>/cmd/terminal-helper@latest
+go install github.com/sonyaihub/terminal-helper/cmd/terminal-helper@latest
 ```
 
 ## Setup
